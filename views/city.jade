@@ -1,0 +1,13 @@
+table#venues.table.table-bordered.table-striped
+	thead
+		th Название
+		th Адрес
+		th Широта
+		th Долгота
+	tbody
+		each venue in venues
+			tr.venue
+				td= venue.name
+				td= venue.location.address
+				td= venue.location.lat
+				td= venue.location.lng
