@@ -21,7 +21,7 @@ exports.decode = function(req, res) {
 			if(pos) {
 				res.redirect('/city/' + [pos[1], pos[0]].join(',') + '/');
 			} else {
-				res.end(200, 'Город не найден');
+				res.send(404);
 			}
 		})
 	}
