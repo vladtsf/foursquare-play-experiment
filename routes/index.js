@@ -8,7 +8,7 @@ var
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' })
+  res.render('index', { title: 'Places' })
 };
 
 exports.decode = function(req, res) {
@@ -36,13 +36,13 @@ exports.city = function(req, res){
 	var cache = Cities[[lat+lon+rad].join('-')];
 
 	if(cache) {
-		res.render('city', {title: 'City', venues: cache});
+		res.render('city', {title: 'Places | City', venues: cache});
 	} else {
 		var city = new City(lat, lon, rad);
 
 		city.getVenues(function(venues) {
 			Cities[[lat+lon+rad].join('-')] = venues;
-			res.render('city', {title: 'City', venues: venues});
+			res.render('city', {title: 'Places | City', venues: venues});
 		});
 	}
 	
