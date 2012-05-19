@@ -1,6 +1,5 @@
 var
-	City = require('../lib/city'),
-	Cities = {};
+	City = require('../lib/city');
 
 
 /*
@@ -33,17 +32,9 @@ exports.city = function(req, res){
 		lon = req.route.params[1],
 		rad = req.route.params[2] || false;
 
-	var cache = Cities[[lat+lon+rad].join('-')];
+	var city = new City(lat, lon, rad);
 
-	if(cache) {
-		res.render('city', {title: 'Places | City', venues: cache});
-	} else {
-		var city = new City(lat, lon, rad);
-
-		city.getVenues(function(venues) {
-			Cities[[lat+lon+rad].join('-')] = venues;
-			res.render('city', {title: 'Places | City', venues: venues});
-		});
-	}
-	
+	city.getVenues(function(venues) {
+		res.render('city', {title: 'Places | City', venues: venues});
+	});
 };
