@@ -1,5 +1,6 @@
 table#venues.table.table-bordered.table-striped
 	thead
+		th
 		th Название
 		th Адрес
 		th Широта
@@ -7,7 +8,11 @@ table#venues.table.table-bordered.table-striped
 	tbody
 		each venue in venues
 			tr.venue
-				td= venue.name
+				td
+					each category in venue.categories
+						img.venue-avatar(title=category.name, alt=category.name, src="#{category.icon.prefix}32#{category.icon.name}")
+				td
+					a(href="https://foursquare.com/v/#{venue.id}")= venue.name
 				td= venue.location.address
 				td= venue.location.lat
 				td= venue.location.lng
