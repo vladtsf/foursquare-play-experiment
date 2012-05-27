@@ -1,10 +1,20 @@
 {
-    "name": "places.tsvang.ru"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.8"
-    , "jade": ">= 0.0.1"
-    ,	"async": ">= 0.1.18"
+  "name": "places.tsvang.ru",
+  "version": "0.0.2",
+  "private": true,
+  "dependencies": {
+    "express": "2.5.8",
+    "jade": ">= 0.0.1",
+    "async": ">= 0.1.18"
+  },
+  "subdomain": "places-tsvangru",
+  "domains": [
+    "places.tsvang.ru"
+  ],
+  "scripts": {
+    "start": "app.js"
+  },
+  "engines": {
+    "node": "0.6.x"
   }
 }
